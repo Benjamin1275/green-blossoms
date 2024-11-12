@@ -1,0 +1,7 @@
+{
+  "name": "green-blossoms",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
