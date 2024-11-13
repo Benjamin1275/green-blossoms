@@ -1,0 +1,112 @@
+<app-menu-home></app-menu-home>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Inicio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <!-- Sección Categorías -->
+    <div class="categories">
+      <h2>Categorías</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card button routerLink="/home/productos">
+              <img src="assets/productos/Antonella.png" alt="Plantas" />
+              <ion-card-header>
+                <ion-card-title>Plantas</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Encuentra una variedad de plantas</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card button routerLink="/home/accesorios">
+              <img src="assets/productos/Rabano Nacional.png" alt="Accesorios" />
+              <ion-card-header>
+                <ion-card-title>Huerto</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Accesorios para el cuidado de tus plantas</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card button routerLink="/home/macetas">
+              <img src="assets/productos/Palto Hass.png" alt="Macetas" />
+              <ion-card-header>
+                <ion-card-title>Macetas</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Variedad de macetas decorativas</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card button routerLink="/home/suculentas">
+              <img src="assets/productos/Cerámica.png" alt="Suculentas" />
+              <ion-card-header>
+                <ion-card-title>Suculentas</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Las mejores suculentas para tu colección</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <!-- Sección Comentarios -->
+    <div class="testimonials">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Juan Pérez</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>¡Me encanta la variedad de plantas que tienen! La calidad es excelente.</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Ana Gómez</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Los accesorios para plantas son muy útiles. ¡Los recomiendo!</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 <b>Green Blossom.</b> Todos los derechos reservados.</p>
+        <div class="social-links">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-icon name="logo-instagram"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+  
+</div>
+<app-menu-tab></app-menu-tab>

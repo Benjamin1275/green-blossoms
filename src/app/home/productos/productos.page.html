@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Productos</ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button href="/home/carrito">
+        <ion-icon name="cart-outline" style="color:#ffffff; font-size: 30px;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Barra de categorías -->
+  <ion-segment [value]="activeCategoryId || ''">
+    <ion-segment-button *ngFor="let category of categories" [value]="category.id" (click)="activeCategoryId = category.id">
+      {{ category.nombre }}
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Lista de productos filtrados por categoría activa -->
+  <ion-list>
+    <ng-container *ngFor="let product of products">
+      <ng-container *ngIf="product.categoria == activeCategoryId">
+        <ion-item [ngClass]="{ 'expanded': expandedProductId === product.id }" class="product-item">
+          <ion-thumbnail slot="start">
+            <img [src]="product.imagen" alt="{{ product.nombrePlanta }}">
+          </ion-thumbnail>
+          <ion-label>
+            <h2 class="product-name">{{ product.nombrePlanta }}</h2>
+            <p class="scientific-name">{{ product.nombreCientifico }}</p>
+            <p class="product-price">Precio: {{ product.precio }}$</p>
+            <ion-button (click)="toggleDetails(product.id); $event.stopPropagation();" color="primary" size="small">Detalles</ion-button>
+            <ion-button (click)="addToCart(product)" color="success" size="small">Agregar al carrito</ion-button>
+          </ion-label>
+        </ion-item>
+
+        <!-- Detalles expandidos -->
+        <ion-item *ngIf="expandedProductId === product.id" class="details-item">
+          <ion-label>
+            <p class="product-description">{{ product.descripcion }}</p>
+            <p class="product-details">{{ product.detalles }}</p>
+          </ion-label>
+        </ion-item>
+      </ng-container>
+    </ng-container>
+  </ion-list>
+</ion-content>

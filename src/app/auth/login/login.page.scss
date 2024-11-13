@@ -1,0 +1,57 @@
+ion-toolbar {
+  --background: #2e7d32; /* Verde oscuro */
+}
+
+ion-card {
+  margin-top: 20%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+ion-card-title {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2e7d32; /* Verde oscuro */
+}
+
+ion-card-content {
+  padding: 20px;
+}
+
+ion-item {
+  margin-bottom: 15px;
+}
+
+ion-button {
+  --background: #97df50; /* Verde crema */
+  --color: #2e7d32; /* Verde oscuro */
+  --border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    --background: #58842d; /* Un poco más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
+  }
+}
+
+ion-footer {
+  margin-top: 20px;
+}
+
+.ion-text-center {
+  display: flex;
+  justify-content: center;
+}
+
+.rounded-button {
+  --border-radius: 50px !important; /* Asegura que el estilo se aplique */
+  width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
+  max-width: 200px; /* Ajusta el ancho máximo según sea necesario */
+  height: 50px; /* Ajusta la altura según sea necesario */
+  margin: 0 auto; /* Centra el botón horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,48 @@
+ion-toolbar {
+  --background: #2e7d32; /* Verde oscuro */
+}
+
+.registro-title {
+  color: #2e7d32; /* Verde oscuro */
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+ion-card {
+  margin-top: 20%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+ion-card-title {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2e7d32; /* Verde oscuro */
+}
+
+ion-card-content {
+  padding: 20px;
+}
+
+ion-item {
+  margin-bottom: 15px;
+}
+
+ion-button {
+  --background: #97df50; /* Verde crema */
+  --color: #2e7d32; /* Verde oscuro */
+  --border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    --background: #58842d; /* Un poco más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
+  }
+}
+
+.ion-padding {
+  padding: 20px;
+}

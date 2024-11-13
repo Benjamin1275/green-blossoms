@@ -1,0 +1,38 @@
+<app-menu-admin></app-menu-admin>
+
+<!-- Página Principal -->
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Pedidos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <!-- Tarjeta de pedidos -->
+    <ion-card>
+      <!-- Encabezado de la lista -->
+      <ion-item>
+        <ion-label>Fecha</ion-label>
+        <ion-label>Cliente</ion-label>
+        <ion-label>Estado</ion-label>
+        <ion-label>Total</ion-label>
+      </ion-item>
+
+      <!-- Lista de pedidos -->
+      <ion-list>
+        <!-- Ejemplo de pedido -->
+        <ion-item *ngFor="let pedido of pedidos">
+          <ion-label>{{ pedido.fecha }}</ion-label>
+          <ion-label>{{ pedido.cliente }}</ion-label>
+          <ion-label>{{ pedido.estado }}</ion-label>
+          <ion-label>{{ pedido.total | currency }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </ion-content>
+</div>

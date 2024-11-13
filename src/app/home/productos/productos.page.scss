@@ -1,0 +1,42 @@
+.category-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #4CAF50; /* Cambiar el color según tu esquema de colores */
+}
+
+.product-item {
+  margin: 10px 0;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  background: #F9F9F9; /* Fondo suave para las tarjetas de producto */
+}
+
+.product-name {
+  font-size: 1.4em;
+  color: #333;
+  margin: 0;
+}
+
+.scientific-name {
+  font-style: italic;
+  color: #757575;
+}
+
+.details-item {
+  background: #FFFFFF; /* Fondo blanco para detalles expandidos */
+  border-top: 1px solid #E0E0E0;
+  margin-top: 10px;
+}
+
+.product-description {
+  margin: 5px 0;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #FF5722; /* Color vibrante para el precio */
+}
+
+.product-details {
+  margin: 5px 0;
+}
