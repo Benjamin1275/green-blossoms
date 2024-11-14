@@ -8,14 +8,6 @@ const routes: Routes = [
     path: '',
     component: HomePage
   },
-  {
-    path: 'productos',
-    loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
-  },
-  {
-    path: 'favoritos',
-    loadChildren: () => import('./favoritos/favoritos.module').then( m => m.FavoritosPageModule)
-  }
 
 ];
 

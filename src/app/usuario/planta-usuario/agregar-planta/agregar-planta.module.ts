@@ -2,21 +2,24 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { PlantaUsuarioPageRoutingModule } from './planta-usuario-routing.module';
-import { PlantaUsuarioPage } from './planta-usuario.page';
+
+import { AgregarPlantaPageRoutingModule } from './agregar-planta-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AgregarPlantaPage } from './agregar-planta.page';
+import { ReactiveFormsModule } from '@angular/forms'
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PlantaUsuarioPageRoutingModule,
+    AgregarPlantaPageRoutingModule,
     SharedModule,
-
+    ReactiveFormsModule,
   ],
-  declarations: [PlantaUsuarioPage],
+  declarations: [AgregarPlantaPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class PlantaUsuarioPageModule {}
+export class AgregarPlantaPageModule { }

@@ -1,0 +1,82 @@
+ion-content {
+  --background: transparent; /* Elimina el fondo gris */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para el contenedor de pantalla completa */
+.full-screen-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ocupa toda la altura del contenedor */
+}
+
+/* Estilo para la tarjeta */
+ion-card {
+  width: 90%; /* Ajusta el ancho del card */
+  max-width: 500px; /* Ancho máximo del card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+/* Estilo para el título de la tarjeta */
+ion-card-title.title {
+  text-align: center;
+  font-size: 2.5em; /* Más grande */
+  font-weight: bold;
+  color: #2e7d32; /* Verde oscuro */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para hacer el texto más llamativo */
+  margin-top: 20px; /* Mueve el título un poco más abajo */
+}
+
+/* Estilo para el contenido de la tarjeta */
+ion-card-content {
+  padding: 20px;
+}
+
+/* Estilo para la sección adicional */
+.additional-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo para la imagen de ajustes */
+.settings-icon {
+  width: 140px; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+/* Estilo para el grupo de botones */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px; /* Agrega margen superior para mover los botones hacia abajo */
+}
+
+/* Estilo para los botones redondeados */
+.rounded-button {
+  --border-radius: 50px !important; /* Asegura que el estilo se aplique */
+  width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
+  max-width: 150px; /* Ajusta el ancho máximo según sea necesario */
+  height: 55px; /* Ajusta la altura según sea necesario */
+  margin: 12px auto; /* Centra el botón horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: smaller; /* Ajusta el tamaño del texto */
+  --background: #97df50; /* Verde crema */
+  --color: #000000; /* Negro */
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

@@ -1,13 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>plantaUsuario</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-menu-home></app-menu-home>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<!--Página Principal-->
+<div class="ion-page" id="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">plantaUsuario</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Plantas</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  <ion-content>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterPlantas()" placeholder="Buscar"></ion-searchbar>
+    <ion-list>
+      <ion-item *ngFor="let p of filteredPlantas">
+        <ion-thumbnail slot="start">
+          <img alt="{{p.nombrePlanta}}" [src]="p.imagen" />
+        </ion-thumbnail>
+        <div class="detalles-texto">
+          <h1>{{p.nombrePlanta}}</h1>
+          <ion-button (click)="selectPlanta(p)" color="success">Configurar en el arduino</ion-button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</div>

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>arduino</ion-title>
+    <ion-title>Configuracion del arduino</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +10,19 @@
       <ion-title size="large">arduino</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="container">
+    <div class="plant-selector">
+      <img *ngIf="imagen" [src]="imagen" alt="Imagen de la planta" />
+      <h2 *ngIf="nombrePlanta" class="plant-name">{{ nombrePlanta }}</h2>
+      <ion-button expand="full" class="rounded-button">Elegir Planta</ion-button>
+    </div>
+    <div class="config-buttons">
+      <ion-button expand="block" class="rounded-button.temperatura" style="color: #df4141;">Configurar
+        Temperatura</ion-button>
+      <ion-button expand="block" class="rounded-button.humedad" style="color: #5780f2;">Configurar Humedad</ion-button>
+      <ion-button expand="block" class="rounded-button.luminosidad" style="color: #f4e44f;">Configurar
+        Luminosidad</ion-button>
+    </div>
+  </div>
 </ion-content>

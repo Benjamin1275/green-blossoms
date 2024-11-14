@@ -1,7 +1,7 @@
 <app-menu-home></app-menu-home>
 <div class="ion-page" id="main-content">
   <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar style="color: #2e7d32;">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -10,6 +10,27 @@
   </ion-header>
 
   <ion-content class="ion-padding">
+    <!-- Sección Arduino -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="title">Green Blossoms</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="arduino">
+          <p class="arduino-text">
+            ¿Aun no tienes configurada tu planta?
+          </p>
+          <div class="arduino-buttons">
+            <a href="/home-usuario">
+              <img src="assets/icon/logo.png" alt="Logo de la empresa" class="logo" />
+            </a>
+          </div>
+          <p style="color: #97df50;" class="arduino-subtext">
+            Empieza dandole click a la <u><strong>imagen</strong></u>
+          </p>
+        </div>
+      </ion-card-content>
+    </ion-card>
     <!-- Sección Categorías -->
     <div class="categories">
       <h2>Categorías</h2>
@@ -107,6 +128,6 @@
     </div>
 
   </ion-content>
-  
+
 </div>
 <app-menu-tab></app-menu-tab>

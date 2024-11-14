@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '', //Si el path es vacio, redirige a la nueva ruta deseada
-    redirectTo: 'welcome', //Redirige a la nueva ruta
+    redirectTo: 'planta-usuario', //Redirige apenas entra a la app
     pathMatch: 'full'
   },
   {
@@ -32,6 +32,7 @@ const routes: Routes = [
     path: 'welcome',
     component: WelcomeComponent
   },
+  // Usuario arduino y planta
   {
     path: 'home-usuario',
     loadChildren: () => import('./usuario/home-usuario/home-usuario.module').then( m => m.HomeUsuarioPageModule)
