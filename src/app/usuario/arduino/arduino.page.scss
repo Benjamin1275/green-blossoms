@@ -1,75 +1,156 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
-}
-
-.plant-selector {
-  width: 100%;
-  margin-bottom: 16px;
-}
-
-.plant-box {
-  width: 100%;
-  height: 300px; /* Aumentar la altura de la caja de la planta */
-  border: 1px solid #ccc;
-  margin-bottom: 8px;
+ion-content {
+  --background: transparent; /* Elimina el fondo gris */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
-.plant-box img {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ocupa toda la altura del contenedor */
+}
+
+.plant-selector {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.plant-image {
   max-width: 100%;
-  max-height: 100%;
-  height: auto; /* Asegurarse de que la imagen mantenga su proporción */
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 15px; /* Bordes redondeados */
+  overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
 }
 
 .plant-name {
-  text-align: center;
-  margin-top: 16px;
+  font-size: 1.5em;
+  color: #ffffff; 
+  margin-bottom: 20px;
 }
 
-.welcome-buttons {
+.config-buttons {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
   max-width: 400px;
-  margin-top: 20px; /* Agrega margen superior para mover los botones hacia abajo */
 }
 
 .rounded-button {
   --border-radius: 50px !important; /* Asegura que el estilo se aplique */
   width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
-  max-width: 150px; /* Ajusta el ancho máximo según sea necesario */
   height: 55px; /* Ajusta la altura según sea necesario */
-  margin: 12px auto; /* Centra el botón horizontalmente */
+  margin: 12px 0; /* Espacio entre los botones */
   display: flex;
   align-items: center;
   justify-content: center;
+  --background: #97df50; /* Verde crema */
+  --color: #000000; /* Negro */
+  font-weight: bold; /* Negrita */
   border: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
 
-.rounded-button.select-plant {
-  --background: #97df50 !important; /* Verde crema */
-  --color: #2e7d32 !important; /* Verde oscuro */
+.rounded-button.temperatura {
+  --background: #df4141; /* Rojo */
 }
 
-.rounded-button.temperature {
-  --background: #FFB3BA !important; /* Rojo pastel */
-  --color: #D32F2F !important; /* Rojo oscuro */
+.rounded-button.humedad {
+  --background: #5780f2; /* Azul */
 }
 
-.rounded-button.humidity {
-  --background: #B3E5FC !important; /* Azul pastel */
-  --color: #0288D1 !important; /* Azul oscuro */
+.rounded-button.luminosidad {
+  --background: #f2e578; /* Amarillo pastel */
 }
 
-.rounded-button.luminosity {
-  --background: #FFF9C4 !important; /* Amarillo pastel */
-  --color: #FBC02D !important; /* Amarillo oscuro */
+.rounded-button.elegir-planta {
+  --background: #97df50; /* Verde crema */
+  --border-radius: 50px !important; /* Redondeado */
+  width: 90%; /* Un poco menos largo */
+  margin: 0 auto; /* Centra el botón horizontalmente */
+}
+
+.centered-title {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff; 
+}
+
+.input-container {
+  background-color: #d3d3d3; /* Gris claro para la caja */
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: #000000; /* Negro para el texto */
+}
+
+.input-with-unit {
+  display: flex;
+  align-items: center;
+}
+
+.input-with-unit ion-input {
+  --color: #000000 !important; /* Negro para el texto del input */
+  flex: 1;
+}
+
+.input-with-unit span {
+  margin-left: 5px;
+  font-size: 1.2em;
+  color: #000000; /* Negro para el texto del símbolo */
+}
+
+.button-container {
+  position: relative;
+}
+
+.help-icon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5em;
+  color: #727272; /* Gris para el icono de ayuda */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
+}
+
+.help-message {
+  position: absolute;
+  top: -80px; /* Ajusta la posición para que no tape tanto los botones */
+  right: 0;
+  background-color: #f9f9f9; /* Fondo claro para el mensaje de ayuda */
+  color: #000000; /* Negro para el texto */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.8em;
+  width: 200px;
+  text-align: center;
+  z-index: 10;
+  animation: fadeOut 8.5s forwards; /* Añade la animación de desaparición */
+}
+
+.help-message::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: #f9f9f9 transparent transparent transparent;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

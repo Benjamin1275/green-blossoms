@@ -13,6 +13,34 @@ export class ArduinoPage implements OnInit {
   imagen: string = '';
   nombrePlanta: string = '';
 
+  showInput = {
+    temperatura: false,
+    humedad: false,
+    luminosidad: false,
+  };
+
+  showHelp = false;
+  temperatureUnit: 'celsius' | 'fahrenheit' = 'celsius';
+  temperatureValue: number | null = null;
+
+  toggleInput(type: 'temperatura' | 'humedad' | 'luminosidad') {
+    this.showInput[type] = !this.showInput[type];
+  }
+
+  toggleHelp() {
+    this.showHelp = !this.showHelp;
+  }
+
+  addUnit(unit: 'celsius' | 'fahrenheit', event: any) {
+    const input = event.target as HTMLInputElement;
+    if (input) {
+      const value = input.value.replace(/[^\d]/g, ''); // Elimina cualquier carácter no numérico
+      input.value = unit === 'celsius' ? `${value}°C` : `${value}°F`;
+    }
+  }
+
+
+
   constructor(private route: ActivatedRoute, private firestoreService: FirestoreServicePlantas) { }
 
   ngOnInit() {
@@ -44,4 +72,5 @@ export class ArduinoPage implements OnInit {
       console.error('Error al obtener los detalles de la planta', error);
     });
   }
+
 }

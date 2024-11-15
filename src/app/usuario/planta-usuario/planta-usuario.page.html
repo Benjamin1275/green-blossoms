@@ -8,7 +8,7 @@
         <ion-back-button defaultHref="/"></ion-back-button>
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Plantas</ion-title>
+      <ion-title>Mis plantas</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -24,5 +24,10 @@
         </div>
       </ion-item>
     </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [routerLink]="['/agregar-planta']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </ion-content>
 </div>
