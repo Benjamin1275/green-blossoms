@@ -3,7 +3,7 @@ import { ToastController, ModalController } from '@ionic/angular';
 import { FirestoreServicePlantas } from 'src/app/admin/services/plantas/planta.service'; // Importar el servicio de Firestore
 import { LoadingController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { VisualizarPlantaComponent } from 'src/app/admin/productos/modal-planta/visualizar-planta.component'; // Importar el componente
+import { VisualizarPlantaUsuarioComponent } from 'src/app/usuario/planta-usuario/modal-planta-usuario/visualizar-planta-usuario.component'; // Importar el componente
 
 @Component({
   selector: 'app-planta-usuario',
@@ -62,6 +62,92 @@ export class PlantaUsuarioPage implements OnInit, OnDestroy {
     });
   }
 
+  async deletePlanta(id: string) {
+    // Usar AlertController para confirmar la eliminación
+    const alert = await this.alertController.create({
+      header: '¿Estás seguro?',
+      message: `¿Deseas eliminar la planta?`,
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        },
+        {
+          text: 'Sí, eliminar',
+          handler: () => {
+            this.deleteConfirmado(id);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async deleteConfirmado(id: string) {
+    const loading = await this.loadingController.create({
+      message: 'Eliminando planta...'
+    });
+    await loading.present();
+    // Llama al servicio para eliminar la planta
+    this.restApi.deletePlanta(id)
+      .subscribe({
+        next: async (data) => {
+          console.log("Planta eliminada: ", data);
+          loading.dismiss();
+
+          // Toast de éxito
+          const toastSuccess = await this.toastController.create({
+            message: 'Planta eliminada exitosamente.',
+            duration: 3000,
+            position: 'top',
+            color: 'success', 
+            buttons: [
+              {
+                side: 'end',
+                icon: 'checkmark-circle-outline',
+                handler: () => {
+                  console.log('Toast de éxito cerrado');
+                }
+              }
+            ]
+          });
+          toastSuccess.present();
+
+          // Actualizar la lista de plantas
+          this.getPlantas();
+        },
+        complete: () => { },
+        error: async (error_msg) => {
+          console.log("Error eliminando planta:", error_msg);
+          loading.dismiss();
+
+          // Toast de error
+          const toastError = await this.toastController.create({
+            message: `Error eliminando planta: ${error_msg.message}`,
+            duration: 3000,
+            position: 'top',
+            color: 'danger', 
+            buttons: [
+              {
+                side: 'end',
+                icon: 'alert-circle-outline',
+                handler: () => {
+                  console.log('Toast de error cerrado');
+                }
+              }
+            ]
+          });
+          toastError.present();
+        }
+      });
+  }
+
+  async editPlanta(id: string) {
+    // Navegar a la página de edición de la planta
+    this.router.navigate(['/editar-planta-usuario', id]);
+  }
+
   async viewPlanta(id: string) {
     if (this.isViewing) return; // Evitar llamadas múltiples
     this.isViewing = true;
@@ -75,7 +161,7 @@ export class PlantaUsuarioPage implements OnInit, OnDestroy {
     this.restApi.getPlanta(id).subscribe({
       next: async (planta) => {
         const modal = await this.modalController.create({
-          component: VisualizarPlantaComponent,
+          component: VisualizarPlantaUsuarioComponent,
           componentProps: { planta }
         });
         await modal.present();

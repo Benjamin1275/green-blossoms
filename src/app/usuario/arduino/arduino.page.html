@@ -2,6 +2,9 @@
   <ion-toolbar>
     <ion-title class="centered-title">Configuración del Arduino</ion-title>
   </ion-toolbar>
+  <ion-buttons slot="end">
+    <ion-back-button defaultHref="/planta-usuario"></ion-back-button>
+  </ion-buttons>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -57,6 +60,10 @@
       <div *ngIf="showInput.luminosidad" class="input-container">
         <ion-input placeholder="Ingrese nivel de luminosidad" maxlength="3" type="number"></ion-input>
       </div>
+    </div>
+    <div class="icon-container">
+      <ion-icon name="pause-circle-outline" class="pause-icon" (click)="confirmPause()"></ion-icon>
+      <ion-icon name="play-circle-outline" class="play-icon" (click)="startConfiguration()"></ion-icon>
     </div>
   </div>
 </ion-content>

@@ -1,3 +1,27 @@
+input[type="file"] {
+  display: block;
+  margin-top: 10px;
+}
+ion-select {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 44px;
+  --font-size: 16px;
+  --color: #000000; /* Negro para el texto */
+}
+
+ion-select-option {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 44px;
+  --font-size: 16px;
+  --color: #000000; /* Negro para el texto */
+}
+
+.large-label {
+  font-size: 1.2em; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
 ion-content {
   --background: transparent; /* Elimina el fondo gris */
   height: 100vh; /* Ocupa toda la altura de la pantalla */
@@ -144,24 +168,6 @@ ion-content {
   border-width: 10px;
   border-style: solid;
   border-color: #f9f9f9 transparent transparent transparent;
-}
-
-.icon-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.play-icon {
-  font-size: 3em; /* Tamaño más grande para el icono de play */
-  margin: 0 10px;
-  color: #4caf50; /* Verde para el icono de play */
-}
-
-.pause-icon {
-  font-size: 3em; /* Tamaño más grande para el icono de pausa */
-  margin: 0 10px;
-  color: #df4141; /* Rojo para el icono de pausa */
 }
 
 @keyframes fadeOut {

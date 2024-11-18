@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirestoreServicePlantas } from 'src/app/admin/services/plantas/planta.service'; // Importar el servicio de Firestore
+import { LoadingController, AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-arduino',
@@ -41,7 +42,11 @@ export class ArduinoPage implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private firestoreService: FirestoreServicePlantas) { }
+  constructor(private route: ActivatedRoute, private firestoreService: FirestoreServicePlantas,
+    public loadingController: LoadingController,
+    public alertController: AlertController,
+    public toastController: ToastController
+) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -71,6 +76,68 @@ export class ArduinoPage implements OnInit {
     }, error => {
       console.error('Error al obtener los detalles de la planta', error);
     });
+  }
+
+  async startConfiguration() {
+    const loading = await this.loadingController.create({
+      message: 'Configuración del arduino en curso!',
+      duration: 3000, // Duración de 3 segundos
+      spinner: 'circles'
+    });
+
+    await loading.present();
+
+    setTimeout(async () => {
+      await loading.dismiss();
+      const toast = await this.toastController.create({
+        message: 'Planta configurada exitosamente!',
+        duration: 2000, // Duración de 2 segundos
+        position: 'top',
+        color: 'success'
+      });
+      toast.present();
+    }, 3000); // Espera 3 segundos antes de mostrar el mensaje de finalización
+  }
+
+  async confirmPause() {
+    const alert = await this.alertController.create({
+      header: 'Confirmación',
+      message: '¿Estás seguro de detener el proceso de monitoreo?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirmación cancelada');
+          }
+        }, {
+          text: 'Sí',
+          handler: async () => {
+            const loading = await this.loadingController.create({
+              message: 'Deteniendo monitoreo...',
+              duration: 3000, // Duración de 3 segundos
+              spinner: 'circles'
+            });
+
+            await loading.present();
+
+            setTimeout(async () => {
+              await loading.dismiss();
+              const toast = await this.toastController.create({
+                message: 'Monitoreo detenido.',
+                duration: 2000, // Duración de 2 segundos
+                position: 'top',
+                color: 'danger'
+              });
+              toast.present();
+            }, 3000); // Espera 3 segundos antes de mostrar el mensaje de finalización
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }

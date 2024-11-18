@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ArduinoPage
+  },  {
+    path: 'riego-planta',
+    loadChildren: () => import('./riego-planta/riego-planta.module').then( m => m.RiegoPlantaPageModule)
   }
+
 ];
 
 @NgModule({

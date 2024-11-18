@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder
-} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -18,13 +13,15 @@ export class RegistroPage implements OnInit {
   constructor(public fb: FormBuilder) {
     this.formularioRegistro = this.fb.group({
       'nombre': new FormControl("", Validators.required),
+      'correo': new FormControl("", [Validators.required, Validators.email]),
       'password': new FormControl("", Validators.required),
       'confirmacionPassword': new FormControl("", Validators.required)
-    });
+    }, { validator: this.passwordsMatch });
   }
 
   ngOnInit() {
   }
+
   passwordsMatch(group: FormGroup): { [key: string]: boolean } | null {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmacionPassword')?.value;
@@ -36,7 +33,7 @@ export class RegistroPage implements OnInit {
     if (this.formularioRegistro.valid) {
       const formData = this.formularioRegistro.value;
       console.log('Nombre:', formData.nombre);
-      console.log('Email:', formData.email);
+      console.log('Correo:', formData.correo);
       console.log('Password:', formData.password);
       // Aquí puedes añadir lógica para registrar al usuario
     } else {

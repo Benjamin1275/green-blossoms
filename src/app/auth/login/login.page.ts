@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private alertController: AlertController) {
     // Inicialización del formulario
     this.formularioLogin = this.fb.group({
-      'Nombre': new FormControl("", Validators.required),
+      'correo': new FormControl("", [Validators.required, Validators.email]),
       'password': new FormControl("", Validators.required)
     });
   }
@@ -26,16 +26,16 @@ export class LoginPage implements OnInit {
   async ingresar() {
     if (this.formularioLogin.valid) {
       const formData = this.formularioLogin.value;
-      console.log('Nombre:', formData.Nombre);
+      console.log('Correo:', formData.correo);
       console.log('Contraseña:', formData.password);
 
       // Validación de credenciales
-      if (formData.Nombre === 'usuario' && formData.password === '123') {
+      if (formData.correo === 'usuario@gmail.com' && formData.password === '123') {
         this.router.navigate(['/home']);
-      } else if (formData.Nombre === 'admin' && formData.password === '123') {
+      } else if (formData.correo === 'admin@gmail.com' && formData.password === '123') {
         this.router.navigate(['/admin']);
       } else {
-        console.log('usuario 123 para home o admin 123 para admin');
+        console.log('usuario@gmail.com 123 para home o admin@gmail.com 123 para admin');
         // Muestra un alert con el mensaje de error
         const alert = await this.alertController.create({
           header: 'Error',

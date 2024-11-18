@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EditarPlantaPage } from './editar-planta.page';
+import { EditarPlantaPage } from './editar-planta-usuario.page';
 
 const routes: Routes = [
   {

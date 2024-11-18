@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditarPlantaPageRoutingModule } from './editar-planta-routing.module';
+import { EditarPlantaPageRoutingModule } from './editar-planta-usuario-routing.module';
 
-import { EditarPlantaPage } from './editar-planta.page';
+import { EditarPlantaPage } from './editar-planta-usuario.page';
 import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [

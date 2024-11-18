@@ -1,0 +1,57 @@
+ion-content {
+  --background: transparent; /* Elimina el fondo gris */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ocupa toda la altura del contenedor */
+}
+
+.plant-selector {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.plant-image {
+  max-width: 120px; /* Ajusta el tamaño máximo de la imagen */
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 15px; /* Bordes redondeados */
+  overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+}
+
+.plant-name {
+  font-size: 1.5em;
+  color: #000000; 
+  margin-bottom: 20px;
+}
+
+.detalles-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 16px;
+  flex: 1; /* Asegura que el texto ocupe el espacio disponible */
+}
+
+.detalles-texto h1 {
+  margin: 0;
+  font-size: 1.5em; /* Ajusta el tamaño de la fuente */
+}
+
+.detalles-texto p {
+  margin: 0;
+  font-size: 1em; /* Ajusta el tamaño de la fuente */
+  color: #666666; /* Color gris para la descripción */
+}
+
+ion-fab-button {
+  --background: #f53d3d; /* Rojo para el botón de cerrar */
+}

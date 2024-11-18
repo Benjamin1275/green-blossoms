@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { LoadingController, AlertController, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FirestoreServicePlantas } from '../../services/plantas/planta.service'; // Importar el servicio de Firestore
-import { FirestoreServiceCategoria } from '../../services/categorias/categoria.service'; // Importar el servicio de Firestore
+import { FirestoreServicePlantas } from '../../../admin/services/plantas/planta.service'; // Importar el servicio de Firestore
+import { FirestoreServiceCategoria } from '../../../admin/services/categorias/categoria.service'; // Importar el servicio de Firestore
 import { Location } from '@angular/common'; // Importa el servicio Location correctamente
 
 @Component({
-  selector: 'app-agregar-planta',
-  templateUrl: './agregar-planta.page.html',
-  styleUrls: ['./agregar-planta.page.scss'],
+  selector: 'app-agregar-planta-usuario',
+  templateUrl: './agregar-planta-usuario.page.html',
+  styleUrls: ['./agregar-planta-usuario.page.scss'],
 })
-export class AgregarPlantaPage implements OnInit {
+export class AgregarPlantaUsuarioPage implements OnInit {
   plantaForm!: FormGroup;
   planta: any = {
     id: Math.floor(Math.random() * 1000),
@@ -25,6 +25,7 @@ export class AgregarPlantaPage implements OnInit {
   };
 
   categorias: any = [];
+  base64Image: string | ArrayBuffer | null = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,8 +43,6 @@ export class AgregarPlantaPage implements OnInit {
       'nombrePlanta': [null, [Validators.required, Validators.maxLength(50), this.noSpecialCharsValidator]],
       'nombreCientifico': [null, [Validators.required, Validators.maxLength(50), this.noSpecialCharsValidator]],
       'categoria': [null, Validators.required],
-      'precio': [null, [Validators.required, Validators.min(0)]],
-      'stock': [null, [Validators.required, Validators.min(0)]],
       'imagen': [null, Validators.required],
       'descripcion': [null, [Validators.required, Validators.maxLength(200), this.noSpecialCharsValidator]]
     });
@@ -84,6 +83,21 @@ export class AgregarPlantaPage implements OnInit {
     }
   }
 
+  onFileChange(event: any) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.base64Image = reader.result;
+        this.plantaForm.patchValue({
+          imagen: this.base64Image
+        });
+      };
+    }
+  }
+
   async onFormSubmit() {
     if (this.plantaForm.invalid) {
       this.checkFieldErrors('nombrePlanta');
@@ -97,7 +111,12 @@ export class AgregarPlantaPage implements OnInit {
     });
     await loading.present();
 
-    this.planta = this.plantaForm.value; // Actualiza el objeto planta con los valores del formulario
+    // Actualiza el objeto planta con los valores del formulario y asigna valores predeterminados a precio y stock
+    this.planta = {
+      ...this.plantaForm.value,
+      precio: 100, // Valor predeterminado para precio
+      stock: 10 // Valor predeterminado para stock
+    };
 
     this.restApiPlantas.addPlanta(this.planta)
       .subscribe({
@@ -107,7 +126,7 @@ export class AgregarPlantaPage implements OnInit {
           console.log("Next agrego, Data Not Null, actualizando lista de plantas");
 
           // Navegar a la página de plantas
-          this.router.navigateByUrl('/admin/productos');
+          this.router.navigateByUrl('/planta-usuario');
 
           // Mostrar mensaje de confirmación
           this.presentToast('Planta agregada correctamente.', 'success');
@@ -119,7 +138,7 @@ export class AgregarPlantaPage implements OnInit {
           this.presentToast('Error al agregar la planta.', 'danger');
 
           // Redirigir a la página de plantas incluso si hay un error
-          this.router.navigateByUrl('/admin/productos'); // Navegar a la página de plantas
+          this.router.navigateByUrl('/planta-usuario'); // Navegar a la página de plantas
         }
       });
     console.log("Fin de la ejecución del método onFormSubmit");

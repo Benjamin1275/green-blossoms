@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '', //Si el path es vacio, redirige a la nueva ruta deseada
-    redirectTo: 'planta-usuario', //Redirige apenas entra a la app
+    redirectTo: 'welcome', //Redirige apenas entra a la app
     pathMatch: 'full'
   },
   {
@@ -49,6 +49,11 @@ const routes: Routes = [
     path: 'planta-usuario',
     loadChildren: () => import('./usuario/planta-usuario/planta-usuario.module').then( m => m.PlantaUsuarioPageModule)
   },
+  {
+    path: 'agregar-planta-usuario',
+    loadChildren: () => import('./usuario/planta-usuario/agregar-planta-usuario/agregar-planta-usuario.module').then( m => m.AgregarPlantaPageModule)
+  },
+
 ];
 
 @NgModule({

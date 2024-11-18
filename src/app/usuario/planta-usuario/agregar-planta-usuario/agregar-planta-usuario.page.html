@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Agregar Planta</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/planta-usuario"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="plantaForm" (ngSubmit)="onFormSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre de la planta</ion-label>
+      <ion-input type="text" formControlName="nombrePlanta"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre Científico</ion-label>
+      <ion-input type="text" formControlName="nombreCientifico"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Categorías predefinidas</ion-label>
+      <ion-select formControlName="categoria">
+        <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" class="large-label">Imagen</ion-label>
+      <input type="file" (change)="onFileChange($event)" accept="image/*" />
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input type="text" formControlName="descripcion"></ion-input>
+    </ion-item>
+    <ion-button type="submit" expand="block" [disabled]="!plantaForm.valid">Agregar Planta</ion-button>
+  </form>
+</ion-content>

@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { AgregarPlantaPageRoutingModule } from './agregar-planta-routing.module';
+import { AgregarPlantaPageRoutingModule } from './agregar-planta-usuario-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AgregarPlantaPage } from './agregar-planta.page';
+import { AgregarPlantaUsuarioPage } from './agregar-planta-usuario.page';
 import { ReactiveFormsModule } from '@angular/forms'
 
 
@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     SharedModule,
     ReactiveFormsModule,
   ],
-  declarations: [AgregarPlantaPage],
+  declarations: [AgregarPlantaUsuarioPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })

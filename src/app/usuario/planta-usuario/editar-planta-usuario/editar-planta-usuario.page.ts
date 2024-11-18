@@ -4,9 +4,8 @@ import { LoadingController, AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
-import { FirestoreServicePlantas } from '../../services/plantas/planta.service'; // Importar el servicio de Firestore
-import { FirestoreServiceCategoria } from '../../services/categorias/categoria.service'; // Importar el servicio de Firestore
-
+import { FirestoreServicePlantas } from '../../../admin/services/plantas/planta.service'; // Importar el servicio de Firestore
+import { FirestoreServiceCategoria } from '../../../admin/services/categorias/categoria.service'; // Importar el servicio de Firestore
 @Component({
   selector: 'app-editar-planta',
   templateUrl: './editar-planta.page.html',
