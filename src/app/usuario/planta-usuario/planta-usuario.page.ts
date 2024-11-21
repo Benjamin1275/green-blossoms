@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ToastController, ModalController } from '@ionic/angular';
 import { FirestoreServicePlantas } from 'src/app/admin/services/plantas/planta.service'; // Importar el servicio de Firestore
 import { LoadingController, AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { VisualizarPlantaUsuarioComponent } from 'src/app/usuario/planta-usuario/modal-planta-usuario/visualizar-planta-usuario.component'; // Importar el componente
 
 @Component({
@@ -23,7 +23,8 @@ export class PlantaUsuarioPage implements OnInit, OnDestroy {
     public alertController: AlertController,
     public toastController: ToastController,
     public router: Router,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {

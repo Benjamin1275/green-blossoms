@@ -1,13 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>riego-planta</ion-title>
+    <ion-title>Riego de Planta</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">riego-planta</ion-title>
+      <ion-title size="large">Riego de Planta</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="container">
+    <div class="top-section">
+      <img src="assets/productos/Zanahoria Nantera.png" alt="Imagen de la planta" class="plant-image" />
+      <div class="button-group">
+        <ion-button expand="block" class="rounded-button riego-manual" (click)="riegoManual()">Riego Manual</ion-button>
+        <ion-button expand="block" class="rounded-button configurar-riego" (click)="configurarRiego()">Configurar Riego Automático</ion-button>
+      </div>
+    </div>
+    <div class="estadisticas">
+      <h3>Estadísticas de Riego</h3>
+      <canvas #barChart></canvas>
+    </div>
+  </div>
 </ion-content>

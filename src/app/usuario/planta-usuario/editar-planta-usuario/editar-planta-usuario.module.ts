@@ -1,21 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { EditarPlantaUsuarioPageRoutingModule } from './editar-planta-usuario-routing.module';
+import { EditarPlantaUsuarioPage } from './editar-planta-usuario.page';
 
-import { EditarPlantaPageRoutingModule } from './editar-planta-usuario-routing.module';
-
-import { EditarPlantaPage } from './editar-planta-usuario.page';
-import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditarPlantaPageRoutingModule,
-    ReactiveFormsModule,
+    EditarPlantaUsuarioPageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [EditarPlantaPage]
+  declarations: [EditarPlantaUsuarioPage]
 })
-export class EditarPlantaPageModule {}
+export class EditarPlantaUsuarioPageModule {}

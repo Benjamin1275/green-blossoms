@@ -1,0 +1,72 @@
+ion-content {
+  --background: transparent; /* Elimina el fondo gris */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  padding: 16px;
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.plant-image {
+  width: 300px; /* Tamaño un poco más grande para la imagen */
+  height: auto;
+  border-radius: 15px; /* Bordes redondeados */
+  overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 120px); /* Ajusta el ancho para que los botones ocupen el espacio restante */
+}
+
+.rounded-button {
+  --border-radius: 50px !important; /* Asegura que el estilo se aplique */
+  width: 70%; /* Ajusta el ancho para que sea más corto */
+  height: 45px; /* Ajusta la altura según sea necesario */
+  margin: 8px auto; /* Espacio entre los botones y centrado horizontal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --background: #97df50; /* Verde crema */
+  --color: #000000; /* Negro */
+  font-weight: bold; /* Negrita */
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.rounded-button.riego-manual {
+  --background: #4caf50; /* Verde */
+}
+
+.rounded-button.configurar-riego {
+  --background: #ff9800; /* Naranja */
+}
+
+.estadisticas {
+  width: 100%;
+  margin-top: 32px;
+}
+
+.estadisticas h3 {
+  text-align: center;
+  color: #ffffff;
+}
+
+.estadisticas canvas {
+  width: 100%;
+  height: 300px;
+}

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>{{planta.nombrePlanta}}</ion-title>
     <ion-buttons slot="end">
-      <ion-back-button defaultHref="/admin/productos"></ion-back-button>
+      <ion-back-button defaultHref="/planta-usuario"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +11,7 @@
   <form [formGroup]="plantaForm" (ngSubmit)="onFormSubmit(plantaForm.value)">
     <ion-item>
       <ion-label position="floating">Nombre de la planta</ion-label>
-      <ion-input type="text"[(ngModel)]="planta.nombrePlanta" formControlName="plant_name"></ion-input>
+      <ion-input type="text" [(ngModel)]="planta.nombrePlanta" formControlName="plant_name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Nombre Científico</ion-label>
@@ -24,20 +24,12 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Precio</ion-label>
-      <ion-input type="number" [(ngModel)]="planta.precio" formControlName="plant_price"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Stock</ion-label>
-      <ion-input type="number" [(ngModel)]="planta.stock" formControlName="plant_stock"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Imagen de la planta URL</ion-label>
-      <ion-input type="text"[(ngModel)]="planta.imagen" formControlName="plant_img"></ion-input>
+      <ion-label position="stacked" class="large-label">Imagen</ion-label>
+      <input type="file" (change)="onFileChange($event)" accept="image/*" />
     </ion-item>
     <ion-item>
       <ion-label position="floating">Descripción</ion-label>
-      <ion-input type="text"[(ngModel)]="planta.descripcion" formControlName="plant_desc"></ion-input>
+      <ion-input type="text" [(ngModel)]="planta.descripcion" formControlName="plant_desc"></ion-input>
     </ion-item>
     <ion-button type="submit" shape="round" color="primary" expand="block"
     [disabled]="!plantaForm.valid">Actualizar Planta</ion-button>
@@ -47,9 +39,7 @@
       <ion-card-title>Imagen de la planta</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-img src="{{planta.imagen}}"
-        alt="Imagen genérica">
-      </ion-img>
+      <ion-img [src]="planta.imagen" alt="Imagen genérica"></ion-img>
     </ion-card-content>
   </ion-card>
 </ion-content>

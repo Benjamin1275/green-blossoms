@@ -1,7 +1,4 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title class="centered-title">Configuración del Arduino</ion-title>
-  </ion-toolbar>
   <ion-buttons slot="end">
     <ion-back-button defaultHref="/planta-usuario"></ion-back-button>
   </ion-buttons>
@@ -18,7 +15,7 @@
     <div class="plant-selector">
       <img *ngIf="imagen" [src]="imagen" alt="Imagen de la planta" class="plant-image" />
       <h2 *ngIf="nombrePlanta" class="plant-name">{{ nombrePlanta }}</h2>
-      <ion-button expand="block" class="rounded-button elegir-planta">Elegir Planta</ion-button>
+      <ion-button expand="block" class="rounded-button elegir-planta" [routerLink]="['/planta-usuario']">Elegir Planta</ion-button>
     </div>
     <div class="config-buttons">
       <div class="button-container">

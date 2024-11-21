@@ -46,6 +46,10 @@ const routes: Routes = [
     loadChildren: () => import('./usuario/arduino/arduino.module').then( m => m.ArduinoPageModule)
   },
   {
+    path: 'riego-planta',
+    loadChildren: () => import('./usuario/arduino/riego-planta/riego-planta.module').then( m => m.RiegoPlantaPageModule)
+  },
+  {
     path: 'planta-usuario',
     loadChildren: () => import('./usuario/planta-usuario/planta-usuario.module').then( m => m.PlantaUsuarioPageModule)
   },
@@ -53,6 +57,10 @@ const routes: Routes = [
     path: 'agregar-planta-usuario',
     loadChildren: () => import('./usuario/planta-usuario/agregar-planta-usuario/agregar-planta-usuario.module').then( m => m.AgregarPlantaPageModule)
   },
+  {
+    path: 'editar-planta-usuario/:id',
+    loadChildren: () => import('./usuario/planta-usuario/editar-planta-usuario/editar-planta-usuario.module').then(m => m.EditarPlantaUsuarioPageModule)
+  }
 
 ];
 

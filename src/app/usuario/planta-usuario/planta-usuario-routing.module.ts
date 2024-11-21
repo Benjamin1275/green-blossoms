@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'agregar-planta-usuario',
     loadChildren: () => import('../planta-usuario/agregar-planta-usuario/agregar-planta-usuario.module').then( m => m.AgregarPlantaPageModule)
+  },
+  {
+    path: 'editar-planta-usuario',
+    loadChildren: () => import('../planta-usuario/editar-planta-usuario/editar-planta-usuario.module').then( m => m.EditarPlantaUsuarioPageModule)
   }
 
 ];

@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { EditarPlantaPage } from './editar-planta-usuario.page';
+import { RouterModule, Routes } from '@angular/router';
+import { EditarPlantaUsuarioPage } from './editar-planta-usuario.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: EditarPlantaPage
+    component: EditarPlantaUsuarioPage
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class EditarPlantaPageRoutingModule {}
+export class EditarPlantaUsuarioPageRoutingModule {}
