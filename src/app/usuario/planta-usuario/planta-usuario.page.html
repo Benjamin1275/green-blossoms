@@ -14,7 +14,7 @@
   <ion-content>
     <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterPlantas()" placeholder="Buscar"></ion-searchbar>
     <ion-list>
-      <ion-item *ngFor="let p of filteredPlantas" (click)="selectPlanta(p)">
+      <ion-item *ngFor="let p of filteredPlantas">
         <ion-thumbnail slot="start">
           <img alt="{{p.nombrePlanta}}" [src]="p.imagen" class="plant-image" />
         </ion-thumbnail>
@@ -22,13 +22,13 @@
           <h1>{{p.nombrePlanta}}</h1>
         </div>
         <div class="button-group">
-          <ion-button (click)="viewPlanta(p.id)" shape="round" color="primary">
+          <ion-button (click)="viewPlanta(p.id); $event.stopPropagation()" shape="round" color="primary">
             <ion-icon name="eye"></ion-icon>
           </ion-button>
-          <ion-button [routerLink]="['/editar-planta-usuario/', p.id]" shape="round" color="warning">
+          <ion-button [routerLink]="['/editar-planta-usuario/', p.id]" (click)="$event.stopPropagation()" shape="round" color="warning">
             <ion-icon name="create"></ion-icon>
           </ion-button>
-          <ion-button (click)="deletePlanta(p.id)" shape="round" color="danger">
+          <ion-button (click)="deletePlanta(p.id); $event.stopPropagation()" shape="round" color="danger">
             <ion-icon name="trash"></ion-icon>
           </ion-button>
           <ion-button (click)="selectPlanta(p)" color="success">
