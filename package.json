@@ -9,7 +9,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "clean": "rimraf target",
+    "format": "prettier --write \"**/*.ts\"",
+    "check": "tsc --noEmit",
+    "build:gatling": "tsc --noEmit && gatling build --typescript",
+    "recorder": "gatling recorder --typescript",
+    "gatling:test": "tsc --noEmit && gatling run --typescript --simulation testGreenBlossoms"
   },
   "private": true,
   "dependencies": {
@@ -34,7 +40,9 @@
     "ionicons": "^7.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "^0.14.10"
+    "zone.js": "^0.14.10",
+    "@gatling.io/core": "3.13.2",
+    "@gatling.io/http": "3.13.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.11",
@@ -48,21 +56,19 @@
     "@angular/language-service": "^18.0.0",
     "@capacitor/cli": "^6.1.2",
     "@ionic/angular-toolkit": "^11.0.1",
-    "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.57.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsdoc": "^48.2.1",
     "eslint-plugin-prefer-arrow": "1.2.2",
-    "jasmine-core": "~5.1.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.4.0"
+    "typescript": "~5.4.0",
+    "@gatling.io/cli": "3.13.2",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "prettier": "3.3.3",
+    "rimraf": "6.0.1",
+    "ts-jest": "^29.2.5"
   },
   "description": "An Ionic project"
 }

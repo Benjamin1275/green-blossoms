@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -24,6 +23,15 @@
     ],
     "useDefineForClassFields": false
   },
+  "include": [
+    "src/**/*.ts",
+    "gatling/**/*.ts", // Incluye los archivos de Gatling
+    "resources/**/*.csv" // Incluye los archivos CSV
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
