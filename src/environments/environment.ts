@@ -8,8 +8,8 @@ export const environment = {
     projectId: "greenblossoms-df5d7",
     storageBucket: "greenblossoms-df5d7.appspot.com",
     messagingSenderId: "622974718814",
-    appId: "1:622974718814:web:6ca1a3357d8878c958f5cf",
-    measurementId: "G-DLWC669SG3"
+    appId: "1:622974718814:web:6ca1a3357d8878c958f5cf", // Aca cambia la parte despues de web:
+    measurementId: "G-DLWC669SG3" // Cambia esto solamente
   }
 };
 
